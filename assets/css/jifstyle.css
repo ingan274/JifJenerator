@@ -1,0 +1,63 @@
+/* font-family: 
+font-family: 'Happy Monkey', cursive; */
+
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --title-font: 'Happy Monkey', cursive;
+    --title-outline: 
+        -2px -2px 20px var(--pink),
+        2px -2px 20px var(--pink),
+        -2px 2px 20px var(--pink),
+        2px 2px 20px var(--pink);
+    --text-font: 'Raleway', sans-serif;
+    --text-outline: 
+        -2px -2px 20px var(--white),
+        2px -2px 20px var(--white),
+        -2px 2px 20px var(--white),
+        2px 2px 20px var(--white);
+    --pink:#FF1493;
+    --white: white;
+  }
+
+  
+  .headerimg {
+      background: url(../img/headerback.jpg);
+      height: 300px;
+      background-size: cover;
+      position: relative;
+  }
+
+  .title {
+      font-family: var(--title-font);
+      text-shadow: var(--title-outline);
+      text-transform: uppercase;
+      color: white;
+      font-size: 80px;
+      padding: 90px 0px 10px 0px;
+      text-align: center; 
+  }
+
+  .subtitle {
+    font-family: var(--text-font);
+    font-weight: 900;
+    color: var(--pink);
+    text-shadow: var(--text-outline);
+
+    font-size: 30px;
+    text-align: center;
+
+  }
+
+  #giphylogo {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 30px;
+      margin: 10px 10px 10px 10px;
+  }
+
