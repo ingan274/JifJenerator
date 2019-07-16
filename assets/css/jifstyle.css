@@ -43,7 +43,6 @@ font-family: 'Gravitas One', cursive; */
 }
 
 .searchFave {
-      
       background-color:#C78F42 ;
       padding: 30px 10px 30px 10px;
      
@@ -62,10 +61,11 @@ font-family: 'Gravitas One', cursive; */
 #searchTitle {
     font-family: 'Arvo', serif;
     font-weight: 400;
+    padding-left: 30px;
 }
 
 #search-input {
-    width: 400px;
+    width: 50%;
     border-radius: 5px;
     border: none;
     height: 40px;
@@ -83,7 +83,9 @@ font-family: 'Gravitas One', cursive; */
     height: 40px;
     color: white;
     font-family: 'Gravitas One', cursive;
+    margin: 0px 5px;
 }
+
 
 .button:hover {
     background-color:white;

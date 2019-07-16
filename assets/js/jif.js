@@ -39,7 +39,6 @@ $(document).ready(function () {
         }
 
         $.ajax(method).then(function (response) {
-            console.log(response);
             var results = response.data
 
             for (var i = 0; i < results.length; i++) {
@@ -52,7 +51,7 @@ $(document).ready(function () {
 
 
 
-                var resultsDiv = $("<div class='gif'>");
+                var resultsDiv = $("<div class='gif' id='" + results[i].id + "' >");
 
                 var favorite = $("<button class='favorite'></button>");
                 var rating = $("<span class='rating'></span> <br>");
@@ -66,6 +65,7 @@ $(document).ready(function () {
                 searchGif.addClass("gifImage")
 
                 favorite.text("Favorite");
+                favorite.attr("id", results[i].id)
                 rating.text("Rating: " + ratingText);
 
 
@@ -73,6 +73,16 @@ $(document).ready(function () {
                 resultsDiv.append(rating);
                 searchGif.appendTo(resultsDiv);
                 $(".results").append(resultsDiv);
+
+                // if favorited
+                if (favoriteList.includes(results[i].id)) {
+                    $(favorite).css("background-color", "#AA1911");
+                    $(favorite).css("color", "white");
+                    $(favorite).css("border", "2px solid #d49f4f");
+                    $(favorite).css("padding", "3px 13px 3px 13px");
+
+                    // favorited = true;
+                }
 
             };
         });
@@ -98,39 +108,64 @@ $(document).ready(function () {
     }).on("mouseout", ".gifImage", function () {
         $(this).attr('src', $(this).attr("still"));
         $(this).attr("frame", "still");
+    });
 
+    $(".favoriteGallery").on("mouseover", ".gifImage", function () {
+        $(this).attr('src', $(this).attr("animated"));
+        $(this).attr("frame", "animated");
+    }).on("mouseout", ".gifImage", function () {
+        $(this).attr('src', $(this).attr("still"));
+        $(this).attr("frame", "still");
     });
 
     // Click to add to favorites
-    var favorite = [];
-    var selectedFavorite = false;
+    var favoriteList = [];
+
+    var favorited = false;
 
     $(".results").on("click", ".favorite", function () {
-        if (!selectedFavorite) {
+        if (!favorited) {
             $(this).css("background-color", "#AA1911");
             $(this).css("color", "white");
             $(this).css("border", "2px solid #d49f4f");
             $(this).css("padding", "3px 13px 3px 13px");
 
-            selectedFavorite = true;
+            favorited = true;
+    
+            var faveDiv = $("div[id=" + ($(this).attr("id")) + "]");
+            $(faveDiv).clone().detach().addClass("clone").appendTo(".favoriteGallery");
+    
+            favoriteList.push($(this).attr("id"))
+        } else if (favorited) {
 
-            favorite.push(this)
-            console.log(favorite)
-
-        } else if (selectedFavorite) {
-            selectedFavorite = false;
-
-            $(this).css("background-color", "");
-            $(this).css("color", "");
-            $(this).css("border", "");
-            $(this).css("padding", "");
+        $(this).css("background-color", "");
+        $(this).css("color", "");
+        $(this).css("border", "");
+        $(this).css("padding", "");
         }
+        
+    });
 
+    $(".favoriteGallery").on("click", ".favorite", function () {
+        var faveDiv = $("div[id=" + ($(this).attr("id")) + "]");
+
+        $(this).css("background-color", "");
+        $(this).css("color", "");
+        $(this).css("border", "");
+        $(this).css("padding", "");
+        $(faveDiv).detach()
     });
 
     // Click on favorites
-    $(".searchFave").on("click", ".favoritebtn", function () {
+    $(".searchFave").on("click", "#favoritebtn", function () {
+        $(".results").hide();
+        $(".favoriteGallery").show()
+    });
 
+    // Click on Search Results
+    $(".searchFave").on("click", "#searchresultsbtn", function () {
+        $(".results").show();
+        $(".favoriteGallery").hide()
     });
 
 
