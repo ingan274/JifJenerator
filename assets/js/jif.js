@@ -81,7 +81,7 @@ $(document).ready(function () {
                     $(favorite).css("border", "2px solid #d49f4f");
                     $(favorite).css("padding", "3px 13px 3px 13px");
 
-                    // favorited = true;
+                    favorited = true;
                 }
 
             };
@@ -131,19 +131,21 @@ $(document).ready(function () {
             $(this).css("padding", "3px 13px 3px 13px");
 
             favorited = true;
-    
+
             var faveDiv = $("div[id=" + ($(this).attr("id")) + "]");
             $(faveDiv).clone().detach().addClass("clone").appendTo(".favoriteGallery");
-    
+
             favoriteList.push($(this).attr("id"))
         } else if (favorited) {
+            favorited = false;
+            $(this).css("background-color", "");
+            $(this).css("color", "");
+            $(this).css("border", "");
+            $(this).css("padding", "");
 
-        $(this).css("background-color", "");
-        $(this).css("color", "");
-        $(this).css("border", "");
-        $(this).css("padding", "");
+            $("div[id=" + ($(this).attr("id")) + " class='gif clone']").detach();
         }
-        
+
     });
 
     $(".favoriteGallery").on("click", ".favorite", function () {
