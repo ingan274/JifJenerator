@@ -1,5 +1,5 @@
-/* font-family: 
-font-family: 'Happy Monkey', cursive; */
+/* font-family: 'Arvo', serif;
+font-family: 'Gravitas One', cursive; */
 
 * {
     margin: 0px;
@@ -7,57 +7,80 @@ font-family: 'Happy Monkey', cursive; */
     box-sizing: border-box;
   }
 
-  :root {
-    --title-font: 'Happy Monkey', cursive;
-    --title-outline: 
-        -2px -2px 20px var(--pink),
-        2px -2px 20px var(--pink),
-        -2px 2px 20px var(--pink),
-        2px 2px 20px var(--pink);
-    --text-font: 'Raleway', sans-serif;
-    --text-outline: 
-        -2px -2px 20px var(--white),
-        2px -2px 20px var(--white),
-        -2px 2px 20px var(--white),
-        2px 2px 20px var(--white);
-    --pink:#FF1493;
-    --white: white;
-  }
 
-  
-  .headerimg {
+.headerimg {
       background: url(../img/headerback.jpg);
       height: 300px;
       background-size: cover;
       position: relative;
-  }
+}
 
-  .title {
-      font-family: var(--title-font);
-      text-shadow: var(--title-outline);
+.title {
+    font-family: 'Gravitas One', cursive;
       text-transform: uppercase;
       color: white;
       font-size: 80px;
       padding: 90px 0px 10px 0px;
       text-align: center; 
-  }
+}
 
-  .subtitle {
-    font-family: var(--text-font);
-    font-weight: 900;
-    color: var(--pink);
-    text-shadow: var(--text-outline);
+.subtitle {
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+    color: white;
 
     font-size: 30px;
     text-align: center;
 
-  }
+}
 
-  #giphylogo {
+#giphylogo {
       position: absolute;
       right: 0;
       bottom: 0;
-      height: 30px;
+      height: 50px;
       margin: 10px 10px 10px 10px;
-  }
+}
+
+.searchFave {
+      
+      background-color:#C78F42 ;
+      padding: 30px 10px 30px 10px;
+     
+}
+#vibe-form{
+    display: block;
+    margin: 0px auto;
+    width: 100%;
+    height: 30px;
+    
+    font-family: var(--text-font);
+    font-weight: 700;
+    color: white;
+}
+
+#searchTitle {
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+}
+
+#search {
+    width: 400px;
+    border-radius: 5px;
+    border: none;
+    height: 40px;;
+}
+
+.button {
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    background-color: #AA1911;
+    height: 40px;
+    color: white;
+    font-family: 'Gravitas One', cursive;
+}
+
+
+
 
