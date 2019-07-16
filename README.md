@@ -16,6 +16,7 @@ No. If your heart so desires, you can actually search for any GIF you want. Ente
 It's pronounced "jif". The man who invented them said so .... This is not up for debate.
 
 ## Programming notes
+* PLEASE GO TO https://developers.giphy.com/ TO GET YOUR OWN KEY
 * Built using HTML, CSS and JavaScript/jQuery
 * Had users hover over a GIF to play it instead of clicking on it, although I also wrote working code for the click function (commented out in the jif.js file)
 * Additional feature: Users cannot add a button that already exists, and if they attempt to do so, an error message will display and the existing button will be highlighted
