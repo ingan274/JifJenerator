@@ -173,6 +173,7 @@ $(document).ready(function () {
     $(".searchFave").on("click", "#favoritebtn", function () {
         $(".results").hide();
         $("#resultTitle").hide();
+        $(".buttons").hide();
         $(".favoriteGallery").show()
     });
 
@@ -180,6 +181,7 @@ $(document).ready(function () {
     $(".searchFave").on("click", "#searchresultsbtn", function () {
         $(".results").show();
         $("#resultTitle").show();
+        $(".buttons").show();
         $(".favoriteGallery").hide()
     });
 
