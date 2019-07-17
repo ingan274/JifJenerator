@@ -126,10 +126,8 @@ $(document).ready(function () {
             $(this).css("border", "");
             $(this).css("padding", "");
 
-            if (favoriteList.includes($(this).attr("id"))) {
-                removeFave()
-            }
 
+            removeFave()
             // HOW TO DETACH A DIV FROM ANOTHER AREA?
             // $("div[id=" + ($(this).attr("id")) + " class='gif clone']").detach();
 
@@ -141,15 +139,18 @@ $(document).ready(function () {
 
             favorited = true;
 
+            // how to make it that the favorites dont repeat showing up?
+
             var faveDiv = $("div[id=" + ($(this).attr("id")) + "]");
             $(faveDiv).clone().detach().addClass("clone").appendTo(".favoriteGallery");
 
             favoriteList.push($(this).attr("id"))
-            }
+        }
 
         console.log("from results:" + favoriteList)
-
     });
+
+
 
     $(".favoriteGallery").on("click", ".favorite", function () {
         var faveDiv = $("div[id=" + ($(this).attr("id")) + "]");
@@ -166,7 +167,7 @@ $(document).ready(function () {
 
         console.log("from Fave:" + favoriteList)
     });
-    
+
 
     // Click on favorites
     $(".searchFave").on("click", "#favoritebtn", function () {
