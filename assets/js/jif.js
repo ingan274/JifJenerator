@@ -27,7 +27,7 @@ $(document).ready(function () {
         $("#search-input").val("");
     });
 
-    //AJX Call
+    //AJX Call to show giphy search
     $(".buttons").on("click", ".search", function () {
         var search = $(this).attr("data-mood")
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&limit=16&q=" + search;
@@ -72,7 +72,7 @@ $(document).ready(function () {
                 resultsDiv.prepend(favorite);
                 resultsDiv.append(rating);
                 searchGif.appendTo(resultsDiv);
-                $(".results").append(resultsDiv);
+                resultsDiv.appendTo(".results")
 
                 // if favorited
                 if (favoriteList.includes(results[i].id)) {
@@ -80,8 +80,6 @@ $(document).ready(function () {
                     $(favorite).css("color", "white");
                     $(favorite).css("border", "2px solid #d49f4f");
                     $(favorite).css("padding", "3px 13px 3px 13px");
-
-                    favorited = true;
                 }
 
             };
@@ -121,10 +119,21 @@ $(document).ready(function () {
     // Click to add to favorites
     var favoriteList = [];
 
-    var favorited = false;
-
     $(".results").on("click", ".favorite", function () {
-        if (!favorited) {
+        if (favoriteList.includes($(this).attr("id"))) {
+            $(this).css("background-color", "");
+            $(this).css("color", "");
+            $(this).css("border", "");
+            $(this).css("padding", "");
+
+            if (favoriteList.includes($(this).attr("id"))) {
+                removeFave()
+            }
+
+            // HOW TO DETACH A DIV FROM ANOTHER AREA?
+            // $("div[id=" + ($(this).attr("id")) + " class='gif clone']").detach();
+
+        } else {
             $(this).css("background-color", "#AA1911");
             $(this).css("color", "white");
             $(this).css("border", "2px solid #d49f4f");
@@ -136,15 +145,9 @@ $(document).ready(function () {
             $(faveDiv).clone().detach().addClass("clone").appendTo(".favoriteGallery");
 
             favoriteList.push($(this).attr("id"))
-        } else if (favorited) {
-            favorited = false;
-            $(this).css("background-color", "");
-            $(this).css("color", "");
-            $(this).css("border", "");
-            $(this).css("padding", "");
+            }
 
-            $("div[id=" + ($(this).attr("id")) + " class='gif clone']").detach();
-        }
+        console.log("from results:" + favoriteList)
 
     });
 
@@ -156,19 +159,34 @@ $(document).ready(function () {
         $(this).css("border", "");
         $(this).css("padding", "");
         $(faveDiv).detach()
+
+        if (favoriteList.includes($(this).attr("id"))) {
+            removeFave()
+        }
+
+        console.log("from Fave:" + favoriteList)
     });
+    
 
     // Click on favorites
     $(".searchFave").on("click", "#favoritebtn", function () {
         $(".results").hide();
+        $("#resultTitle").hide();
         $(".favoriteGallery").show()
     });
 
     // Click on Search Results
     $(".searchFave").on("click", "#searchresultsbtn", function () {
         $(".results").show();
+        $("#resultTitle").show();
         $(".favoriteGallery").hide()
     });
+
+    // Removing gif ID from from Array Function
+    function removeFave() {
+        var index = favoriteList.indexOf($(this).attr("id"))
+        favoriteList.splice(index, 1)
+    }
 
 
 

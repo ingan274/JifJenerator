@@ -114,6 +114,15 @@ font-family: 'Gravitas One', cursive; */
     text-align: center;
 }
 
+.objectTitle {
+    font-family: 'Gravitas One', cursive;
+    text-transform: uppercase;
+    color: #AA1911;
+    font-size: 30px;
+    padding: 10px 0px 10px 0px;
+    text-align: center; 
+}
+
 .favorite {
     background-color:lightgrey;
     font-family:  'Arvo', serif;
