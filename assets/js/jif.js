@@ -148,15 +148,17 @@ $(document).ready(function () {
             $(this).css("color", "white");
             $(this).css("border", "2px solid #d49f4f");
             $(this).css("padding", "3px 13px 3px 13px");
-
+           
+            favoriteList.push($(this).attr("id"))
             favorited = true;
+           
             var dataIndex = favoriteList.length ? favoriteList.length - 1 : 0;
 
             // adding giv to favorites (div is being cloned and moved)
             var faveDiv = $("div[id=" + ($(this).attr("id")) + "]").attr("data-index", dataIndex);
             faveDiv.clone().detach().addClass("clone").appendTo(".favoriteGallery");
 
-            favoriteList.push($(this).attr("id"))
+            
 
         }
 
