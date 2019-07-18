@@ -51,7 +51,7 @@ $(document).ready(function () {
 
 
 
-                var resultsDiv = $("<div class='gif' id='" + results[i].id + "' >");
+                var resultsDiv = $("<div class='gif " + results[i].id + "' id='" + results[i].id + "' >");
 
                 var favorite = $("<button class='favorite'></button>");
                 var rating = $("<span class='rating'></span> <br>");
@@ -65,7 +65,8 @@ $(document).ready(function () {
                 searchGif.addClass("gifImage")
 
                 favorite.text("Favorite");
-                favorite.attr("id", results[i].id)
+                favorite.attr("id", results[i].id);
+                favorite.addClass(results[i].id)
                 rating.text("Rating: " + ratingText);
 
 
@@ -126,10 +127,21 @@ $(document).ready(function () {
             $(this).css("border", "");
             $(this).css("padding", "");
 
-
-            removeFave()
             // HOW TO DETACH A DIV FROM ANOTHER AREA?
-            // $("div[id=" + ($(this).attr("id")) + " class='gif clone']").detach();
+            var ID = $(this).attr("id");
+            var deletingDiv = $("." + ID)
+
+            // we are filtering our elements that share the same class (BY ID) 
+            // within the filter we must return true for our filtering mechanism to work and it returns as an array
+            var myItem = deletingDiv.filter(function (index, item) {
+
+                return $(item).hasClass("clone")
+            })
+
+            $(myItem[0]).remove();
+
+            var index = $(myItem[0]).attr("data-index");
+            removeFave(index);
 
         } else {
             $(this).css("background-color", "#AA1911");
@@ -138,13 +150,14 @@ $(document).ready(function () {
             $(this).css("padding", "3px 13px 3px 13px");
 
             favorited = true;
+            var dataIndex = favoriteList.length ? favoriteList.length - 1 : 0;
 
-            // how to make it that the favorites dont repeat showing up?
-
-            var faveDiv = $("div[id=" + ($(this).attr("id")) + "]");
-            $(faveDiv).clone().detach().addClass("clone").appendTo(".favoriteGallery");
+            // adding giv to favorites (div is being cloned and moved)
+            var faveDiv = $("div[id=" + ($(this).attr("id")) + "]").attr("data-index", dataIndex);
+            faveDiv.clone().detach().addClass("clone").appendTo(".favoriteGallery");
 
             favoriteList.push($(this).attr("id"))
+
         }
 
         console.log("from results:" + favoriteList)
@@ -159,10 +172,22 @@ $(document).ready(function () {
         $(this).css("color", "");
         $(this).css("border", "");
         $(this).css("padding", "");
-        $(faveDiv).detach()
+        $(faveDiv).remove()
 
         if (favoriteList.includes($(this).attr("id"))) {
-            removeFave()
+            // HOW TO DETACH A DIV FROM ANOTHER AREA?
+            var ID = $(this).attr("id");
+            var deletingDiv = $("." + ID)
+
+            // we are filtering our elements that share the same class (BY ID) 
+            // within the filter we must return true for our filtering mechanism to work and it returns as an array
+            var myItem = deletingDiv.filter(function (index, item) {
+
+                return $(item).hasClass("clone")
+            })
+
+            var index = $(myItem[0]).attr("data-index");
+            removeFave(index);
         }
 
         console.log("from Fave:" + favoriteList)
@@ -186,11 +211,8 @@ $(document).ready(function () {
     });
 
     // Removing gif ID from from Array Function
-    function removeFave() {
-        var index = favoriteList.indexOf($(this).attr("id"))
+    function removeFave(index) {
+        console.log('index',index);
         favoriteList.splice(index, 1)
     }
-
-
-
 })
