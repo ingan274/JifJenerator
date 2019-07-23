@@ -5,54 +5,50 @@ font-family: 'Gravitas One', cursive; */
     margin: 0px;
     padding: 0;
     box-sizing: border-box;
-  }
-
+}
 
 .headerimg {
-      background: url(../img/headerback.jpg);
-      height: 300px;
-      background-size: cover;
-      position: relative;
+    background: url(../img/headerback.jpg);
+    height: 300px;
+    background-size: cover;
+    position: relative;
 }
 
 .title {
     font-family: 'Gravitas One', cursive;
-      text-transform: uppercase;
-      color: white;
-      font-size: 80px;
-      padding: 90px 0px 10px 0px;
-      text-align: center; 
+    text-transform: uppercase;
+    color: white;
+    font-size: 80px;
+    padding: 90px 0px 10px 0px;
+    text-align: center;
 }
 
 .subtitle {
     font-family: 'Arvo', serif;
     font-weight: 700;
     color: white;
-
     font-size: 30px;
     text-align: center;
-
 }
 
 #giphylogo {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      height: 50px;
-      margin: 10px 10px 10px 10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    margin: 10px 10px 10px 10px;
 }
 
 .searchFave {
-      background-color:#C78F42 ;
-      padding: 30px 10px 30px 10px;
-     
+    background-color: #C78F42;
+    padding: 30px 10px 30px 10px;
 }
-#vibe-form{
+
+#vibe-form {
     display: block;
     margin: 0px auto;
     width: 100%;
     height: 30px;
-    
     font-family: var(--text-font);
     font-weight: 700;
     color: white;
@@ -65,7 +61,7 @@ font-family: 'Gravitas One', cursive; */
 }
 
 #search-input {
-    width: 50%;
+    width: 40%;
     border-radius: 5px;
     border: none;
     height: 40px;
@@ -74,9 +70,11 @@ font-family: 'Gravitas One', cursive; */
     padding: 5px 15px;
 }
 
+
 /* favorite and search */
+
 .button {
-    width: 200px;
+    width: 150px;
     border-radius: 5px;
     border: none;
     background-color: #AA1911;
@@ -84,23 +82,25 @@ font-family: 'Gravitas One', cursive; */
     color: white;
     font-family: 'Gravitas One', cursive;
     margin: 0px 5px;
+    font-size: 12px;
 }
 
-
 .button:hover {
-    background-color:white;
+    background-color: white;
     color: #AA1911;
     border: 3px solid #AA1911;
 }
 
+
 /* search buttons */
+
 .search {
     border-radius: 5px;
     border: none;
     background: #d49f4f;
     height: 40px;
     color: white;
-    font-family:  'Arvo', serif;
+    font-family: 'Arvo', serif;
     margin: 15px 15px 15px 15px;
     padding: 5px 15px 5px 15px;
 }
@@ -120,12 +120,12 @@ font-family: 'Gravitas One', cursive; */
     color: #AA1911;
     font-size: 30px;
     padding: 10px 0px 10px 0px;
-    text-align: center; 
+    text-align: center;
 }
 
 .favorite {
-    background-color:lightgrey;
-    font-family:  'Arvo', serif;
+    background-color: lightgrey;
+    font-family: 'Arvo', serif;
     color: black;
     border-radius: 5px;
     border: none;
@@ -139,7 +139,6 @@ font-family: 'Gravitas One', cursive; */
     border-radius: 5px;
     border: 2px solid #d49f4f;
     padding: 3px 13px 3px 13px;
-
 }
 
 .gif {
@@ -159,7 +158,3 @@ font-family: 'Gravitas One', cursive; */
 .favoriteGallery {
     display: none;
 }
-
-
-
-
