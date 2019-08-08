@@ -158,3 +158,23 @@ font-family: 'Gravitas One', cursive; */
 .favoriteGallery {
     display: none;
 }
+
+.modal {
+    color: #d49f4f;
+    font-family: 'Arvo', serif;
+}
+
+.closeModal {
+    background: #AA1911;
+    font-family: 'Gravitas One', cursive;
+    color:white;
+}
+
+.closeModal:hover, .close:hover {
+    color: #d49f4f;
+    background: #AA1911;
+}
+
+.close {
+    color: #AA1911;
+}

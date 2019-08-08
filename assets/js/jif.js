@@ -22,9 +22,23 @@ $(document).ready(function () {
     $("#submitbtn").on("click", function (event) {
         event.preventDefault();
         var search = $("#search-input").val().trim();
-        existingMoods.push(search);
-        buttons()
-        $("#search-input").val("");
+
+        if (existingMoods.includes(search)) {
+            $(".modal").show();
+        } else {
+            existingMoods.push(search);
+            buttons()
+            $("#search-input").val("");
+        }
+       
+    });
+
+    // modal close
+    $(".close").on("click", function (event) {
+        $(".modal").hide();
+    });
+    $(".closeModal").on("click", function (event) {
+        $(".modal").hide();
     });
 
     //AJX Call to show giphy search
